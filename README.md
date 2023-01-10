@@ -1,5 +1,7 @@
 # Program-for-genshin
-Simple program to have fun in genshin
+Simple program to have fun in genshin.
+
+For x64 Windows only.
 
 Yoimiya fast shot program, with SDL library.
 Done by Yung-Tien Lai.

@@ -10,11 +10,13 @@ Done by Yung-Tien Lai.</br>
 
 Press v key, the program goes to (yoimiya) fast shot mode.
 Press again to back idle.</br>
-當你按住 V 鍵，程式會進入(宵宮)速射模式。
+當你按下 V 鍵，程式會進入(宵宮)速射模式。
+再按一次返回待機。
 
 Press n key, the program goes to skip (drama) mode.
 Press again to back idle.</br>
-當你按住 N 鍵，程式會進入跳過(劇情)模式。
+當你按下 N 鍵，程式會進入跳過(劇情)模式。
+再按一次返回待機。
 
 Thanks for Zhen Kuo's help.</br>
 感謝郭鎮的協助。

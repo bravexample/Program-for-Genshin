@@ -64,8 +64,8 @@ int WinMain() {
 			Sleep(50);
 		}
 
-		if (GetAsyncKeyState('V')) state = 1;
-		else if (GetAsyncKeyState('N')) state = 2;
+		if (GetKeyState('V')) state = 1;
+		else if (GetKeyState('N')) state = 2;
 		else state = 0;
 
 		SDL_PollEvent(&event);

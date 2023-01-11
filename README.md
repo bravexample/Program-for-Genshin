@@ -20,3 +20,8 @@ Press again to back idle.</br>
 
 Thanks for Zhen Kuo's help.</br>
 感謝郭鎮的協助。
+
+## Compile
+Dependence : MinGW (I use x86_64-posix-seh version)</br>
+Set MinGW to %PATH% is better.</br>
+Just run compile.cmd, you should get sdl_yoimiya_macro.exe running.

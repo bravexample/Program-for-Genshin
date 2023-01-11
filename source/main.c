@@ -33,7 +33,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	texture[2] = SDL_CreateTextureFromSurface(renderer, surface);
 
 	SDL_Event event;
-	int state = 0, tempState = 3;
+	int state = 0, tempState = -1;
 	INPUT inputs[4];
 	inputs[0].type = INPUT_MOUSE;
 	inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;

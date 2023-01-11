@@ -33,7 +33,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	texture[2] = SDL_CreateTextureFromSurface(renderer, surface);
 
 	SDL_Event event;
-	int state = 0;
+	int state = 0, tempState = 0;
 	INPUT inputs[4];
 	inputs[0].type = INPUT_MOUSE;
 	inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
@@ -46,10 +46,20 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	inputs[3].ki.wVk = 'R';
 	inputs[3].ki.dwFlags = KEYEVENTF_KEYUP;
 
-	do {
-		SDL_RenderCopy(renderer, texture[state], NULL, NULL);
-		SDL_RenderPresent(renderer);
+	SDL_RenderCopy(renderer, texture[state], 0, 0);
+	SDL_RenderPresent(renderer);
 
+	do {
+		if (GetKeyState('V')) state = 1;
+		else if (GetKeyState('N')) state = 2;
+		else state = 0;
+
+		if (state != tempState) {
+			SDL_RenderCopy(renderer, texture[state], 0, 0);
+			SDL_RenderPresent(renderer);
+			tempState = state;
+		}
+	
 		if (state == 1) {
 			SendInput(2, inputs, sizeof(INPUT));
 			Sleep(400);
@@ -62,11 +72,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			SendInput(2, inputs, sizeof(INPUT));
 			Sleep(50);
 		}
-
-		if (GetKeyState('V')) state = 1;
-		else if (GetKeyState('N')) state = 2;
-		else state = 0;
-
+	
 		SDL_PollEvent(&event);
 	} while (event.type != SDL_QUIT);
 

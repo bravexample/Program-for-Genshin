@@ -33,7 +33,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	texture[2] = SDL_CreateTextureFromSurface(renderer, surface);
 
 	SDL_Event event;
-	int state = 0, tempState = 0;
+	int state = 0, tempState = 1;
 	INPUT inputs[4];
 	inputs[0].type = INPUT_MOUSE;
 	inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
@@ -45,9 +45,6 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	inputs[3].type = INPUT_KEYBOARD;
 	inputs[3].ki.wVk = 'R';
 	inputs[3].ki.dwFlags = KEYEVENTF_KEYUP;
-
-	SDL_RenderCopy(renderer, texture[state], 0, 0);
-	SDL_RenderPresent(renderer);
 
 	do {
 		if (GetKeyState('V')) state = 1;

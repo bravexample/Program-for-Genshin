@@ -26,11 +26,15 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	SDL_FreeSurface(surface);
 	surface = IMG_Load("picture/fast_shot.png");
+	if (!surface) return -1;
 	texture[1] = SDL_CreateTextureFromSurface(renderer, surface);
+	if (!texture[1]) return -1;
 
 	SDL_FreeSurface(surface);
 	surface = IMG_Load("picture/skip.png");
+	if (!surface) return -1;
 	texture[2] = SDL_CreateTextureFromSurface(renderer, surface);
+	if (!texture[2]) return -1;
 
 	SDL_Event event;
 	int state = 0, tempState = -1;

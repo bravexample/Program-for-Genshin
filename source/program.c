@@ -31,16 +31,16 @@ void PROGRAM_alloc_textures(PROGRAM * program, const int size) {
 }
 
 void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index) {
-    if (index < 0 || index > program->textureArrayEnd) {
-        MessageBox(0, "Texture index out of range.", 0, MB_OK);
+	if (index < 0 || index > program->textureArrayEnd) {
+		MessageBox(0, "Texture index out of range.", 0, MB_OK);
 		PROGRAM_delete(program);
 		exit(-1);
-    }
+	}
 
 	if (!program->surface) SDL_FreeSurface(program->surface);
 
 	program->surface = IMG_Load(filename);
-    if (!program->surface) {
+	if (!program->surface) {
 		MessageBox(0, "Failed loading image.", 0, MB_OK);
 		PROGRAM_delete(program);
 		exit(-1);
@@ -48,7 +48,7 @@ void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index)
 
 	if (program->textureArray[index]) SDL_DestroyTexture(program->textureArray[index]);
 
-    program->textureArray[index] = SDL_CreateTextureFromSurface(program->renderer, program->surface);
+	program->textureArray[index] = SDL_CreateTextureFromSurface(program->renderer, program->surface);
 	if (!program->textureArray[index]) {
 		MessageBox(0, "Failed creating texture.", 0, MB_OK);
 		PROGRAM_delete(program);
@@ -62,21 +62,21 @@ void PROGRAM_render_texture(PROGRAM *program, const int index) {
 }
 
 void PROGRAM_delete(PROGRAM *program) {
-    if (!program) return;
+	if (!program) return;
 
-    if (program->textureArray) {
-        for (long long i = 0; i < program->textureArrayEnd; i++) {
-            if (program->textureArray[i]) SDL_DestroyTexture(program->textureArray[i]);
-        }
-    }
+	if (program->textureArray) {
+		for (long long i = 0; i < program->textureArrayEnd; i++) {
+			if (program->textureArray[i]) SDL_DestroyTexture(program->textureArray[i]);
+		}
+	}
 
 	if (!program->surface) SDL_FreeSurface(program->surface);
 
-    if (program->renderer) SDL_DestroyRenderer(program->renderer);
+	if (program->renderer) SDL_DestroyRenderer(program->renderer);
 
-    if (program->window) SDL_DestroyWindow(program->window);
+	if (program->window) SDL_DestroyWindow(program->window);
 
-    free(program);
+	free(program);
 }
 
 INPUT inputs[6] = {

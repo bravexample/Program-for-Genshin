@@ -57,6 +57,11 @@ void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index)
 }
 
 void PROGRAM_render_texture(PROGRAM *program, const int index) {
+	if (!program->textureArray[index]) {
+		MessageBox(0, "Try to render null texture.", 0, MB_OK);
+		return;
+	}
+
 	SDL_RenderCopy(program->renderer, program->textureArray[index], 0, 0);
 	SDL_RenderPresent(program->renderer);
 }

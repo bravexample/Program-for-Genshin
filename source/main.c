@@ -47,8 +47,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			Sleep(50);
 			key_press('R');
 			Sleep(50);
-		}
-		else if (state == 2) {
+		} else if (state == 2) {
 			mouse_click('l');
 			Sleep(50);
 		}

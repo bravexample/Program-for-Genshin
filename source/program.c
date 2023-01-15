@@ -27,7 +27,7 @@ void PROGRAM_alloc_textures(PROGRAM * program, const int size) {
 	}
 
 	program->textureArray = (SDL_Texture **)calloc(size, sizeof(SDL_Texture *));
-    program->textureArrayEnd = size - 1;
+	program->textureArrayEnd = size - 1;
 }
 
 void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index) {

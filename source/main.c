@@ -36,8 +36,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 		else state = 0;
 
 		if (state != tempState) {
-			SDL_RenderCopy(program->renderer, program->textureArray[state], 0, 0);
-			SDL_RenderPresent(program->renderer);
+			PROGRAM_render_texture(program, state);
 			tempState = state;
 		}
 	

@@ -56,6 +56,11 @@ void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index)
 	}
 }
 
+void PROGRAM_render_texture(PROGRAM *program, const int index) {
+	SDL_RenderCopy(program->renderer, program->textureArray[index], 0, 0);
+	SDL_RenderPresent(program->renderer);
+}
+
 void PROGRAM_delete(PROGRAM *program) {
     if (!program) return;
 

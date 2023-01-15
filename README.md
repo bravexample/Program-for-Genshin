@@ -24,4 +24,4 @@ Thanks for Zhen Kuo's help.</br>
 ## Compile
 Dependence : MinGW (I use x86_64-posix-seh version)</br>
 Set MinGW to %PATH% is better.</br>
-Just run compile.cmd, you should get sdl_yoimiya_macro.exe running.
+Just execute make(mingw32-make), you should get sdl_yoimiya_macro.exe running.

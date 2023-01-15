@@ -1,4 +1,4 @@
-# Program-for-genshin
+# Program-for-Genshin
 Simple program to have fun in genshin.
 
 For x64 Windows only.

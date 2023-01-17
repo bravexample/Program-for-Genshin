@@ -20,6 +20,8 @@ void PROGRAM_alloc_textures(PROGRAM *, const int);
 
 void PROGRAM_load_image(PROGRAM *, const char *, const int);
 
+void PROGRAM_render_texture(const PROGRAM *, const int);
+
 void PROGRAM_delete(PROGRAM *);
 
 void mouse_click(const char);

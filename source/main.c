@@ -31,6 +31,8 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 	int state = 0, tempState = -1;
 
 	do {
+		Sleep(100);
+
 		if (GetKeyState('V')) state = 1;
 		else if (GetKeyState('N')) state = 2;
 		else state = 0;

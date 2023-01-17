@@ -20,7 +20,7 @@ PROGRAM *PROGRAM_create(const int windowWidth, const int windowHeight) {
 	return newPROGRAM;
 }
 
-void PROGRAM_alloc_textures(PROGRAM * program, const int size) {
+void PROGRAM_alloc_textures(PROGRAM *program, const int size) {
 	if (program->textureArray) {
 		MessageBox(0, "Don't try to allocate textures twice.", 0, MB_OK);
 		return;

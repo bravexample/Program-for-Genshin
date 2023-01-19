@@ -25,17 +25,21 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 
 	PROGRAM_alloc_textures(program, pictureNumber);
 	
-	for (int i = 0; i < pictureNumber; i++) PROGRAM_load_image(program, pictureName[i], i);
+	for (int i = 0; i < pictureNumber; i++) 
+		PROGRAM_load_image(program, pictureName[i], i);
 
 	SDL_Event event;
 	int state = 0, tempState = -1;
 
 	do {
-		Sleep(100);
-
-		if (GetKeyState('V')) state = 1;
-		else if (GetKeyState('N')) state = 2;
-		else state = 0;
+		Sleep(50);
+	
+		if (GetKeyState('V')) 
+			state = 1;
+		else if (GetKeyState('N')) 
+			state = 2;
+		else 
+			state = 0;
 
 		if (state != tempState) {
 			PROGRAM_render_texture(program, state);
@@ -48,11 +52,9 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			key_press('R');
 			Sleep(50);
 			key_press('R');
-			Sleep(50);
-		} else if (state == 2) {
-			mouse_click('l');
-			Sleep(50);
 		}
+		else if (state == 2) 
+			mouse_click('l');
 	
 		SDL_PollEvent(&event);
 	} while (event.type != SDL_QUIT);

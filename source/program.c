@@ -37,7 +37,8 @@ void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index)
 		exit(-1);
 	}
 
-	if (!program->surface) SDL_FreeSurface(program->surface);
+	if (!program->surface) 
+		SDL_FreeSurface(program->surface);
 
 	program->surface = IMG_Load(filename);
 	if (!program->surface) {
@@ -46,7 +47,8 @@ void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index)
 		exit(-1);
 	}
 
-	if (program->textureArray[index]) SDL_DestroyTexture(program->textureArray[index]);
+	if (program->textureArray[index]) 
+		SDL_DestroyTexture(program->textureArray[index]);
 
 	program->textureArray[index] = SDL_CreateTextureFromSurface(program->renderer, program->surface);
 	if (!program->textureArray[index]) {
@@ -67,19 +69,24 @@ void PROGRAM_render_texture(const PROGRAM *program, const int index) {
 }
 
 void PROGRAM_delete(PROGRAM *program) {
-	if (!program) return;
+	if (!program) 
+		return;
 
 	if (program->textureArray) {
 		for (long long i = 0; i < program->textureArrayEnd; i++) {
-			if (program->textureArray[i]) SDL_DestroyTexture(program->textureArray[i]);
+			if (program->textureArray[i]) 
+				SDL_DestroyTexture(program->textureArray[i]);
 		}
 	}
 
-	if (!program->surface) SDL_FreeSurface(program->surface);
+	if (!program->surface) 
+		SDL_FreeSurface(program->surface);
 
-	if (program->renderer) SDL_DestroyRenderer(program->renderer);
+	if (program->renderer) 
+		SDL_DestroyRenderer(program->renderer);
 
-	if (program->window) SDL_DestroyWindow(program->window);
+	if (program->window) 
+		SDL_DestroyWindow(program->window);
 
 	free(program);
 }
@@ -107,13 +114,17 @@ INPUT inputs[6] = {
 };
 
 void mouse_click(const char mouseKey) {
-	if (mouseKey == 'l') SendInput(2, inputs, sizeof(INPUT));
-	else if (mouseKey == 'r') SendInput(2, inputs + 2, sizeof(INPUT));
-	else MessageBox(0, "WTF is the mouse?", 0, MB_OK);
+	if (mouseKey == 'l') 
+		SendInput(2, inputs, sizeof(INPUT));
+	else if (mouseKey == 'r') 
+		SendInput(2, inputs + 2, sizeof(INPUT));
+	else 
+		MessageBox(0, "WTF is the mouse?", 0, MB_OK);
 }
 
 void key_press(const char key) {
-	if (key < 'A' || key > 'Z') MessageBox(0, "WTF you want to press?", 0, MB_OK);
+	if (key < 'A' || key > 'Z') 
+		MessageBox(0, "WTF you want to press?", 0, MB_OK);
 	else {
 		inputs[4].ki.wVk = key;
 		inputs[5].ki.wVk = key;

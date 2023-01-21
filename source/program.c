@@ -124,7 +124,7 @@ void mouse_click(const char mouseKey) {
 
 void key_press(const char key) {
 	if (key < 'A' || key > 'Z') 
-		MessageBox(0, "WTF you want to press?", 0, MB_OK);
+		MessageBox(0, "WTF  you want to press?", 0, MB_OK);
 	else {
 		inputs[4].ki.wVk = key;
 		inputs[5].ki.wVk = key;

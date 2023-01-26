@@ -22,8 +22,12 @@ PROGRAM *PROGRAM_create(const int windowWidth, const int windowHeight) {
 
 void PROGRAM_alloc_textures(PROGRAM *program, const int size) {
 	if (program->textureArray) {
-		MessageBox(0, "Don't try to allocate textures twice.", 0, MB_OK);
-		return;
+		for (long long i = 0; i < program->textureArrayEnd; i++) {
+			if (program->textureArray[i]) 
+				SDL_DestroyTexture(program->textureArray[i]);
+		}
+
+		free(program->textureArray);
 	}
 
 	program->textureArray = (SDL_Texture **)calloc(size, sizeof(SDL_Texture *));
@@ -77,6 +81,8 @@ void PROGRAM_delete(PROGRAM *program) {
 			if (program->textureArray[i]) 
 				SDL_DestroyTexture(program->textureArray[i]);
 		}
+		
+		free(program->textureArray);
 	}
 
 	if (program->surface) 
@@ -89,6 +95,7 @@ void PROGRAM_delete(PROGRAM *program) {
 		SDL_DestroyWindow(program->window);
 
 	free(program);
+	program = 0;
 }
 
 INPUT inputs[6] = {

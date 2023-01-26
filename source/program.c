@@ -37,7 +37,7 @@ void PROGRAM_load_image(PROGRAM *program, const char *filename, const int index)
 		exit(-1);
 	}
 
-	if (!program->surface) 
+	if (program->surface) 
 		SDL_FreeSurface(program->surface);
 
 	program->surface = IMG_Load(filename);
@@ -79,7 +79,7 @@ void PROGRAM_delete(PROGRAM *program) {
 		}
 	}
 
-	if (!program->surface) 
+	if (program->surface) 
 		SDL_FreeSurface(program->surface);
 
 	if (program->renderer) 

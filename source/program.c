@@ -95,7 +95,6 @@ void PROGRAM_delete(PROGRAM *program) {
 		SDL_DestroyWindow(program->window);
 
 	free(program);
-	program = 0;
 }
 
 INPUT inputs[6] = {

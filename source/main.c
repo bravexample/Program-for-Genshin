@@ -52,8 +52,7 @@ int WINAPI WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLin
 			key_press('R');
 			Sleep(50);
 			key_press('R');
-		}
-		else if (state == 2) 
+		} else if (state == 2) 
 			mouse_click('l');
 	
 		SDL_PollEvent(&event);

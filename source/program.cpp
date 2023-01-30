@@ -128,7 +128,7 @@ void VIRTUALINPUT::mouse(const char mouseKey) {
 
 void VIRTUALINPUT::keyboard(const char key) {
 	if (key < 'A' || key > 'Z') 
-		MessageBox(0, "WTF  you want to press?", 0, MB_OK);
+		MessageBox(0, "WTF do you want to press?", 0, MB_OK);
 	else {
 		_keyboard[0].ki.wVk = _keyboard[1].ki.wVk = key;
 		SendInput(2, _keyboard, sizeof(INPUT));

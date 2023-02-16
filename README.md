@@ -1,8 +1,8 @@
 # Program-for-Genshin
-Simple program to have fun in genshin.
+Simple program to have fun in genshin.</br>
 為原神開發的小程式。
 
-Using SDL library, for x64 Windows only.
+Using SDL library, for x64 Windows only.</br>
 使用 SDL 函式庫，專為 64 位元 Windows 開發。
 
 Press v key, the program goes to (yoimiya) fast shot mode.

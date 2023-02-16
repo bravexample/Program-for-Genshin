@@ -1,12 +1,9 @@
 # Program-for-Genshin
 Simple program to have fun in genshin.
+為原神開發的小程式。
 
-For x64 Windows only.
-
-Yoimiya fast shot program, with SDL library.
-Done by Yung-Tien Lai.</br>
-宵宮速射程式，使用 SDL 函式庫。
-由賴勇典開發。
+Using SDL library, for x64 Windows only.
+使用 SDL 函式庫，專為 64 位元 Windows 開發。
 
 Press v key, the program goes to (yoimiya) fast shot mode.
 Press again to back idle.</br>

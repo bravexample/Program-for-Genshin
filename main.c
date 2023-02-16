@@ -7,7 +7,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	int state = 0, tempState = -1;
 
 	do {
-		Sleep(35);
+		Sleep(25);
 	
 		if (GetKeyState('V')) 
 			state = 1;
@@ -25,7 +25,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			mouse_click('l');
 			Sleep(400);
 			key_press('R');
-			Sleep(35);
+			Sleep(40);
 			key_press('R');
 		}
 		else if (state == 2) 

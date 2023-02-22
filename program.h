@@ -120,10 +120,10 @@ static inline DWORD WINAPI ThreadProc(LPVOID lpParameter)
 
     while (threadState)
     {
-        if (GetKeyState('N'))		state = 1;
-        else if (GetKeyState('V'))	state = 2;
-        else if (GetKeyState('H'))	state = 3;
-        else						state = 0;
+        if (GetKeyState('N'))       state = 1;
+        else if (GetKeyState('V'))  state = 2;
+        else if (GetKeyState('H'))  state = 3;
+        else                        state = 0;
 
         if (state != stateNow)
         {

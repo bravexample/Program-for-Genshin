@@ -40,7 +40,7 @@ static INPUT        virtualInputs[] =
         {.type = INPUT_KEYBOARD, .ki.dwFlags = 0},
         {.type = INPUT_KEYBOARD, .ki.dwFlags = KEYEVENTF_KEYUP}
     };
-static int			threadState		= 0;
+static int          threadState     = 0;
 
 static inline LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define WINDOWWIDTH         400
+#define WINDOWWIDTH         1000
 #define WINDOWHEIGHT        100
 #define WINDOWSTYLE         WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX
 #define PROGRAM_NAME        "Program for Genshin"
@@ -15,6 +15,7 @@
 #define MOUSELEFTUP         SendInput(1, virtualInputs + 1, inputSize)
 #define MOUSERIGHTDOWN      SendInput(1, virtualInputs + 2, inputSize)
 #define MOUSERIGHTUP        SendInput(1, virtualInputs + 3, inputSize)
+#define MOUSETURNAROUND     SendInput(1, virtualInputs + 4, inputSize)
 
 static HWND         window          = 0;
 static HDC          windowDC        = 0;
@@ -28,7 +29,8 @@ static const char*  stateNames[]    =
         "IDLE",
         "SKIP",
         "YOIMIYA",
-        "HUTAO"
+        "HUTAO",
+        "NEUVILLETTE",
     };
 static const int    inputSize       = sizeof(INPUT);
 static INPUT        virtualInputs[] =
@@ -37,6 +39,7 @@ static INPUT        virtualInputs[] =
         {.type = INPUT_MOUSE, .mi.dwFlags = MOUSEEVENTF_LEFTUP},
         {.type = INPUT_MOUSE, .mi.dwFlags = MOUSEEVENTF_RIGHTDOWN},
         {.type = INPUT_MOUSE, .mi.dwFlags = MOUSEEVENTF_RIGHTUP},
+        {.type = INPUT_MOUSE, .mi.dx = 1000, .mi.dwFlags = MOUSEEVENTF_MOVE},
         {.type = INPUT_KEYBOARD, .ki.dwFlags = 0},
         {.type = INPUT_KEYBOARD, .ki.dwFlags = KEYEVENTF_KEYUP}
     };
@@ -108,8 +111,8 @@ static inline void State_Update(int state)
 
 static inline void key_press(const char key)
 {
-    virtualInputs[4].ki.wVk = key;
     virtualInputs[5].ki.wVk = key;
+    virtualInputs[6].ki.wVk = key;
     SendInput(2, virtualInputs + 4, inputSize);
 }
 
@@ -123,6 +126,7 @@ static inline DWORD WINAPI ThreadProc(LPVOID lpParameter)
         if (GetKeyState('N'))       state = 1;
         else if (GetKeyState('V'))  state = 2;
         else if (GetKeyState('H'))  state = 3;
+        else if (GetKeyState('Z'))  state = 4;
         else                        state = 0;
 
         if (state != stateNow)
@@ -151,6 +155,9 @@ static inline DWORD WINAPI ThreadProc(LPVOID lpParameter)
             MOUSELEFTUP;
             key_press(' ');
             Sleep(560);
+            break;
+        case 4:
+            MOUSETURNAROUND;
         }
 
         Sleep(40);
